@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 };
 
 const RootLayout: NextPage<PropsWithChildren> = ({ children }) => (
-  <html lang="pt-br">
-    <body className={inter.variable}>{children}</body>
+  <html lang="pt-br" className={inter.variable}>
+    <body>{children}</body>
   </html>
 );
 
