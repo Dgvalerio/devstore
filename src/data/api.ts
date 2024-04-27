@@ -1,8 +1,9 @@
-import { env } from '@/types/env';
+import { env } from '@/data/types/env';
 
 export const api = (path: string, init?: RequestInit): Promise<Response> => {
   const baseUrl = env.NEXT_PUBLIC_API_BASE_URL;
-  const url = new URL(path, baseUrl);
+  const prefix = 'api';
+  const url = new URL(prefix.concat(path), baseUrl);
 
   return fetch(url, init);
 };
