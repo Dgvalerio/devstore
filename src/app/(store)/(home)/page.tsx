@@ -6,7 +6,9 @@ import { api } from '@/data/api';
 import { Product } from '@/data/types/product';
 
 const getFeaturedProducts = async (): Promise<Product[]> => {
-  const response = await api('/products/featured');
+  const response = await api('/products/featured', {
+    next: { revalidate: 60 * 60 /* 1 Hour */ },
+  });
 
   const products = await response.json();
 
