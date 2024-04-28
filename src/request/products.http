@@ -1,2 +1,5 @@
 ### GET Product by slug
 GET {{baseUrl}}/products/moletom-ai-side
+
+### GET Search products
+GET {{baseUrl}}/products/search?q=camiseta
