@@ -14,7 +14,7 @@ const getProduct = async (slug: string): Promise<Product> => {
   return products;
 };
 
-interface ProductPageProps {
+export interface ProductPageProps {
   params: {
     slug: string;
   };
