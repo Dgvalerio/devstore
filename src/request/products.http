@@ -1,3 +1,6 @@
+### GET All Products
+GET {{baseUrl}}/products
+
 ### GET Product by slug
 GET {{baseUrl}}/products/moletom-ai-side
 
