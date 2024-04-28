@@ -28,6 +28,15 @@ export const generateMetadata = async ({
   return { title: product.title };
 };
 
+export const generateStaticParams = async (): Promise<
+  ProductPageProps['params'][]
+> => {
+  const response = await api('/products/featured');
+  const products: Product[] = await response.json();
+
+  return products.map((product) => ({ slug: product.slug }));
+};
+
 const ProductPage: NextPage<ProductPageProps> = async ({ params }) => {
   const product = await getProduct(params.slug);
 
