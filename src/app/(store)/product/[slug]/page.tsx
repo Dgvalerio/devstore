@@ -1,4 +1,4 @@
-import { NextPage } from 'next';
+import { Metadata, NextPage } from 'next';
 import Image from 'next/image';
 
 import { api } from '@/data/api';
@@ -19,6 +19,14 @@ interface ProductPageProps {
     slug: string;
   };
 }
+
+export const generateMetadata = async ({
+  params,
+}: ProductPageProps): Promise<Metadata> => {
+  const product = await getProduct(params.slug);
+
+  return { title: product.title };
+};
 
 const ProductPage: NextPage<ProductPageProps> = async ({ params }) => {
   const product = await getProduct(params.slug);

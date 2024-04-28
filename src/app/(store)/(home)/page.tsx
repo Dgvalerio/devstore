@@ -1,4 +1,4 @@
-import { NextPage } from 'next';
+import { type Metadata, NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -14,6 +14,8 @@ const getFeaturedProducts = async (): Promise<Product[]> => {
 
   return products;
 };
+
+export const metadata: Metadata = { title: 'Home' };
 
 const Home: NextPage = async () => {
   const [highlightedProduct, ...otherProducts] = await getFeaturedProducts();
