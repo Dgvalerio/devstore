@@ -4,8 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { CartWidget } from '@/components/cart-widget';
-
-import { Search } from 'lucide-react';
+import { SearchForm } from '@/components/search-form';
 
 export const Header: FC = () => (
   <div className="flex items-center justify-between">
@@ -13,13 +12,7 @@ export const Header: FC = () => (
       <Link href="/" className="text-2xl font-extrabold text-white">
         devstore
       </Link>
-      <form className="flex w-[320px] items-center gap-3 rounded-full bg-zinc-900 px-5 py-3 ring-zinc-700">
-        <Search className="h-5 w-5 text-zinc-500" />
-        <input
-          placeholder="Buscar Produtos..."
-          className="flex-1 bg-transparent text-sm outline-none placeholder:text-zinc-500"
-        />
-      </form>
+      <SearchForm />
     </div>
     <div className="flex items-center gap-4">
       <CartWidget />
