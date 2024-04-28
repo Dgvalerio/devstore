@@ -1,10 +1,11 @@
-import { FC } from 'react';
+import { FC, Suspense } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { CartWidget } from '@/components/cart-widget';
 import { SearchForm } from '@/components/search-form';
+import { Skeleton } from '@/components/skeleton';
 
 export const Header: FC = () => (
   <div className="flex items-center justify-between">
@@ -12,7 +13,11 @@ export const Header: FC = () => (
       <Link href="/" className="text-2xl font-extrabold text-white">
         devstore
       </Link>
-      <SearchForm />
+      <Suspense
+        fallback={<Skeleton className="w-[320px] h-[44px] rounded-full" />}
+      >
+        <SearchForm />
+      </Suspense>
     </div>
     <div className="flex items-center gap-4">
       <CartWidget />
