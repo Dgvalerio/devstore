@@ -1,19 +1,17 @@
+import { createEnv } from '@t3-oss/env-core';
+
 import { z } from 'zod';
 
-const envSchema = z.object({
-  NEXT_PUBLIC_API_BASE_URL: z.string().url(),
-  APP_URL: z.string().url(),
+export const env = createEnv({
+  server: {
+    APP_URL: z.string().url(),
+  },
+
+  clientPrefix: 'NEXT_PUBLIC_',
+  client: {
+    NEXT_PUBLIC_API_BASE_URL: z.string().url(),
+  },
+
+  runtimeEnv: process.env,
+  emptyStringAsUndefined: true,
 });
-
-const parsedEnv = envSchema.safeParse(process.env);
-
-if (!parsedEnv.success) {
-  const error = 'Invalid environment variables';
-
-  // eslint-disable-next-line
-  console.error(error, parsedEnv.error.flatten().fieldErrors);
-
-  throw new Error(error);
-}
-
-export const env = parsedEnv.data;
