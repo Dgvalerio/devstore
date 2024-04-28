@@ -24,7 +24,7 @@ const SearchPage: NextPage<SearchPageProps> = async ({ searchParams }) => {
   const { q: query } = searchParams;
 
   if (!query) {
-    redirect('/home');
+    redirect('/');
   }
 
   const products = await searchProducts(query);
